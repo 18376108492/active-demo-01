@@ -13,7 +13,7 @@ import java.util.zip.ZipInputStream;
  */
 public class DepoleyMentTest {
 
-    public static void test(String[] args) {
+    public static void  main(String[] args) {
         //获取ProcessEngine
         ProcessEngine processEngine=ProcessEngines.getDefaultProcessEngine();
         //repositoryService
@@ -36,29 +36,29 @@ public class DepoleyMentTest {
 
 
     //流程定义部署  流程制作出来后要上传到服务器 zip文件更便于上传
-    public static void main(String[] args) {
-        //1.创建ProcessEngine对象
-        ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
-
-        //2.得到RepositoryService实例
-        RepositoryService repositoryService = processEngine.getRepositoryService();
-
-        //3.转化出ZipInputStream流对象
-        InputStream is = DepoleyMentTest.class.getClassLoader().getResourceAsStream("diagram/holidayBPMN.zip");
-
-        //将 inputstream流转化为ZipInputStream流
-        ZipInputStream zipInputStream = new ZipInputStream(is);
-
-        //3.进行部署
-        Deployment deployment = repositoryService.createDeployment()
-                .addZipInputStream(zipInputStream)
-                .name("请假申请单流程")
-                .deploy();
-
-        //4.输出部署的一些信息
-        System.out.println(deployment.getName());
-        System.out.println(deployment.getId());
-    }
+//    public static void main(String[] args) {
+//        //1.创建ProcessEngine对象
+//        ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
+//
+//        //2.得到RepositoryService实例
+//        RepositoryService repositoryService = processEngine.getRepositoryService();
+//
+//        //3.转化出ZipInputStream流对象
+//        InputStream is = DepoleyMentTest.class.getClassLoader().getResourceAsStream("diagram/holidayBPMN.zip");
+//
+//        //将 inputstream流转化为ZipInputStream流
+//        ZipInputStream zipInputStream = new ZipInputStream(is);
+//
+//        //3.进行部署
+//        Deployment deployment = repositoryService.createDeployment()
+//                .addZipInputStream(zipInputStream)
+//                .name("请假申请单流程")
+//                .deploy();
+//
+//        //4.输出部署的一些信息
+//        System.out.println(deployment.getName());
+//        System.out.println(deployment.getId());
+//    }
 
 
 
